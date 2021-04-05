@@ -10,7 +10,6 @@ require (
 	github.com/networkservicemesh/api v0.0.0-20210403165646-b0b334ca6872
 	github.com/networkservicemesh/sdk v0.0.0-20210405062928-0d2dc281b97c
 	github.com/networkservicemesh/sdk-sriov v0.0.0-20210404184056-e8b6c9fd33d5
-	github.com/networkservicemesh/sdk-vpp v0.0.0-20210405063250-b9cbf6b70e98
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spiffe/go-spiffe/v2 v2.0.0-beta.5
 	google.golang.org/grpc v1.36.1
