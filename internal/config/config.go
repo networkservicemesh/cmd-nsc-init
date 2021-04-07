@@ -24,7 +24,7 @@ import (
 
 // Config - configuration for cmd-nsc-init
 type Config struct {
-	Name             string        `default:"cmd-nsc-vpp" desc:"Name of Endpoint"`
+	Name             string        `default:"cmd-nsc-init" desc:"Name of the client" split_words:"true"`
 	DialTimeout      time.Duration `default:"5s" desc:"timeout to dial NSMgr" split_words:"true"`
 	RequestTimeout   time.Duration `default:"15s" desc:"timeout to request NSE" split_words:"true"`
 	ConnectTo        url.URL       `default:"unix:///var/lib/networkservicemesh/nsm.io.sock" desc:"url to connect to" split_words:"true"`

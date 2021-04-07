@@ -141,21 +141,18 @@ func main() {
 	// Create Network Service Manager nsmClient
 	// ********************************************************************************
 	nsmClient := chain.NewNetworkServiceClient(
-		append(
-			append([]networkservice.NetworkServiceClient{
-				updatepath.NewClient(rootConf.Name),
-				serialize.NewClient(),
-				heal.NewClient(ctx, networkservice.NewMonitorConnectionClient(cc)),
-				sriovtoken.NewClient(),
-				mechanisms.NewClient(map[string]networkservice.NetworkServiceClient{
-					vfiomech.MECHANISM:   chain.NewNetworkServiceClient(vfio.NewClient()),
-					kernelmech.MECHANISM: chain.NewNetworkServiceClient(kernel.NewClient()),
-				}),
-				sendfd.NewClient(),
-			}, nil),
-			authorize.NewClient(),
-			networkservice.NewNetworkServiceClient(cc),
-		)...)
+		updatepath.NewClient(rootConf.Name),
+		serialize.NewClient(),
+		heal.NewClient(ctx, networkservice.NewMonitorConnectionClient(cc)),
+		sriovtoken.NewClient(),
+		mechanisms.NewClient(map[string]networkservice.NetworkServiceClient{
+			vfiomech.MECHANISM:   chain.NewNetworkServiceClient(vfio.NewClient()),
+			kernelmech.MECHANISM: chain.NewNetworkServiceClient(kernel.NewClient()),
+		}),
+		sendfd.NewClient(),
+		authorize.NewClient(),
+		networkservice.NewNetworkServiceClient(cc),
+	)
 
 	// ********************************************************************************
 	// Create Network Service Manager nsmClient
@@ -191,7 +188,4 @@ func main() {
 
 		logger.Infof("successfully connected to %v. Response: %v", u.NetworkService(), resp)
 	}
-
-	// Wait for cancel event to terminate
-	<-ctx.Done()
 }
