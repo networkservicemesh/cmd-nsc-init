@@ -8,7 +8,7 @@ require (
 	github.com/edwarnicke/signalctx v0.0.0-20201105214533-3a35840b3011
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v0.0.0-20210417193417-dd329f8d6b7a
-	github.com/networkservicemesh/sdk v0.0.0-20210417194505-478fed8a7e3f
+	github.com/networkservicemesh/sdk v0.0.0-20210417200211-b65cacb99e9e
 	github.com/networkservicemesh/sdk-sriov v0.0.0-20210404184056-e8b6c9fd33d5
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spiffe/go-spiffe/v2 v2.0.0-beta.5
