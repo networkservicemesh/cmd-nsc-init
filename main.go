@@ -22,10 +22,10 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"os/signal"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/edwarnicke/grpcfd"
-	"github.com/edwarnicke/signalctx"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/sirupsen/logrus"
 	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
@@ -61,9 +61,14 @@ func main() {
 	// ********************************************************************************
 	// Configure signal handling context
 	// ********************************************************************************
-	ctx := signalctx.WithSignals(context.Background())
-	var cancel context.CancelFunc
-	ctx, cancel = context.WithCancel(ctx)
+	ctx, cancel := signal.NotifyContext(
+		context.Background(),
+		os.Interrupt,
+		// More Linux signals here
+		syscall.SIGHUP,
+		syscall.SIGTERM,
+		syscall.SIGQUIT,
+	)
 	defer cancel()
 
 	// ********************************************************************************
