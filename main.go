@@ -23,7 +23,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-    "syscall"
+	"syscall"
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/edwarnicke/grpcfd"
