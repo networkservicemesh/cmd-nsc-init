@@ -6,7 +6,6 @@ import (
 	_ "fmt"
 	_ "github.com/antonfisher/nested-logrus-formatter"
 	_ "github.com/edwarnicke/grpcfd"
-	_ "github.com/edwarnicke/signalctx"
 	_ "github.com/kelseyhightower/envconfig"
 	_ "github.com/networkservicemesh/api/pkg/api/networkservice"
 	_ "github.com/networkservicemesh/api/pkg/api/networkservice/mechanisms/kernel"
@@ -36,5 +35,7 @@ import (
 	_ "google.golang.org/grpc/credentials"
 	_ "net/url"
 	_ "os"
+	_ "os/signal"
+	_ "syscall"
 	_ "time"
 )
