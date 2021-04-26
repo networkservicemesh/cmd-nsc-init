@@ -47,6 +47,7 @@ import (
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/sendfd"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/serialize"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/updatepath"
+	"github.com/networkservicemesh/sdk/pkg/networkservice/connectioncontext/dnscontext"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/core/chain"
 	"github.com/networkservicemesh/sdk/pkg/tools/grpcutils"
 	"github.com/networkservicemesh/sdk/pkg/tools/jaeger"
@@ -153,8 +154,9 @@ func main() {
 			vfiomech.MECHANISM:   chain.NewNetworkServiceClient(vfio.NewClient()),
 			kernelmech.MECHANISM: chain.NewNetworkServiceClient(kernel.NewClient()),
 		}),
-		sendfd.NewClient(),
+		dnscontext.NewClient(dnscontext.WithChainContext(ctx)),
 		authorize.NewClient(),
+		sendfd.NewClient(),
 		networkservice.NewNetworkServiceClient(cc),
 	)
 
