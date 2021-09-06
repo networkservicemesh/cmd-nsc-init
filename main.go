@@ -41,10 +41,10 @@ import (
 	"github.com/networkservicemesh/sdk-sriov/pkg/networkservice/common/mechanisms/vfio"
 	sriovtoken "github.com/networkservicemesh/sdk-sriov/pkg/networkservice/common/token"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/authorize"
+	"github.com/networkservicemesh/sdk/pkg/networkservice/common/begin"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/kernel"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/sendfd"
-	"github.com/networkservicemesh/sdk/pkg/networkservice/common/serialize"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/updatepath"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/connectioncontext/dnscontext"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/core/chain"
@@ -149,7 +149,7 @@ func main() {
 	// ********************************************************************************
 	nsmClient := chain.NewNetworkServiceClient(
 		updatepath.NewClient(rootConf.Name),
-		serialize.NewClient(),
+		begin.NewClient(),
 		sriovtoken.NewClient(),
 		mechanisms.NewClient(map[string]networkservice.NetworkServiceClient{
 			vfiomech.MECHANISM:   chain.NewNetworkServiceClient(vfio.NewClient()),
