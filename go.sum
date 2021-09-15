@@ -119,13 +119,11 @@ github.com/nats-io/nuid v1.0.1/go.mod h1:19wcPz3Ph3q0Jbyiqsd0kePYG7A95tJPxeL+1OS
 github.com/nats-io/stan.go v0.6.0/go.mod h1:eIcD5bi3pqbHT/xIIvXMwvzXYElgouBvaVRftaE+eac=
 github.com/networkservicemesh/api v1.0.1-0.20210907194827-9a36433d7d6e h1:PO6tDo/bGLJqz1qiqCecht/HqMWCKunAds2U9Hvc0yM=
 github.com/networkservicemesh/api v1.0.1-0.20210907194827-9a36433d7d6e/go.mod h1:B6meq/SWjWR6bGXZdXPfbOeaBK+T1JayLdtEJQCsXKU=
-github.com/networkservicemesh/sdk v0.5.1-0.20210908084855-0baab927e78f/go.mod h1:eISPu+ySJJ46kg03ZTi/xmpNSU+K4cImwq++ZbDV4F4=
 github.com/networkservicemesh/sdk v0.5.1-0.20210914140353-07ced33cad48 h1:DHeDBnTrl6821apPSxg4NUciwRkLyF752nPXxEDwySY=
 github.com/networkservicemesh/sdk v0.5.1-0.20210914140353-07ced33cad48/go.mod h1:eISPu+ySJJ46kg03ZTi/xmpNSU+K4cImwq++ZbDV4F4=
-github.com/networkservicemesh/sdk-kernel v0.0.0-20210908085229-781895269ec7 h1:A0grwgCkvKH8sHLJefRUiY+XqNvMgLrswjUrLLB2sZo=
-github.com/networkservicemesh/sdk-kernel v0.0.0-20210908085229-781895269ec7/go.mod h1:+528qvrbHWvlne8j2Y18wyjVDgR77/QrclBcyMFBmDE=
-github.com/networkservicemesh/sdk-sriov v0.0.0-20210908085622-865ce6ba57c0 h1:ZmnRU/WQRX0ALuzgEm+hpf2LMi7nYaVvdsDLDNyRZj8=
-github.com/networkservicemesh/sdk-sriov v0.0.0-20210908085622-865ce6ba57c0/go.mod h1:MbX4bxgBKMgt30eM3/x6wBGrHPLkOcsX2PfY0/mq04k=
+github.com/networkservicemesh/sdk-kernel v0.0.0-20210914141039-db5ab40baee1/go.mod h1:ktY/U4T2KSicIk2kIMtorzJuVbBYvWGYc+hAFlQL5m0=
+github.com/networkservicemesh/sdk-sriov v0.0.0-20210914141410-e098156e4221 h1:3+Hn6cKDNicsVaY8LwG00Pae6nya2gxNpSd3dH7Zq7Q=
+github.com/networkservicemesh/sdk-sriov v0.0.0-20210914141410-e098156e4221/go.mod h1:lBVJnWZMPA8S48BLPcvPhZBUsrPzJGQRtF6oMan+0G0=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e h1:fD57ERR4JtEqsWbfPhv4DMiApHyliiK5xCTNVSPiaAs=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
@@ -163,7 +161,6 @@ github.com/spiffe/go-spiffe/v2 v2.0.0-alpha.4.0.20200528145730-dc11d0c74e85/go.m
 github.com/spiffe/go-spiffe/v2 v2.0.0-beta.5 h1:FKeGzmMtP079mo/7jH3UFOnBUO30j/tmsKSiPX6GcmM=
 github.com/spiffe/go-spiffe/v2 v2.0.0-beta.5/go.mod h1:TEfgrEcyFhuSuvqohJt6IxENUNeHfndWCCV1EX7UaVk=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
-github.com/stretchr/objx v0.1.1 h1:2vfRuCMp5sSVIDSqO8oNnWJq7mPa6KVP3iPIwFBuy8A=
 github.com/stretchr/objx v0.1.1/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
