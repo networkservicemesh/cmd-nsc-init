@@ -99,7 +99,7 @@ func main() {
 	if err := envconfig.Process("nsm", rootConf); err != nil {
 		logger.Fatalf("error processing rootConf from env: %+v", err)
 	}
-
+	setLogLevel(rootConf.LogLevel)
 	logger.Infof("rootConf: %+v", rootConf)
 
 	// ********************************************************************************
@@ -195,4 +195,12 @@ func main() {
 
 		logger.Infof("successfully connected to %v. Response: %v", u.NetworkService(), resp)
 	}
+}
+
+func setLogLevel(level string) {
+	l, err := logrus.ParseLevel(level)
+	if err != nil {
+		logrus.Fatalf("invalid log level %s", level)
+	}
+	logrus.SetLevel(l)
 }

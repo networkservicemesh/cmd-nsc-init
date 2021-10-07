@@ -30,4 +30,5 @@ type Config struct {
 	ConnectTo        url.URL       `default:"unix:///var/lib/networkservicemesh/nsm.io.sock" desc:"url to connect to" split_words:"true"`
 	MaxTokenLifetime time.Duration `default:"10m" desc:"maximum lifetime of tokens" split_words:"true"`
 	NetworkServices  []url.URL     `default:"" desc:"A list of Network Service Requests" split_words:"true"`
+	LogLevel         string        `default:"INFO" desc:"Log level" split_words:"true"`
 }
