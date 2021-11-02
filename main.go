@@ -45,6 +45,7 @@ import (
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/kernel"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/sendfd"
+	"github.com/networkservicemesh/sdk/pkg/networkservice/common/retry"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/updatepath"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/connectioncontext/dnscontext"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/core/chain"
@@ -161,6 +162,8 @@ func main() {
 		networkservice.NewNetworkServiceClient(cc),
 	)
 
+	nsmClient = retry.NewClient(nsmClient, retry.WithTryTimeout(rootConf.RequestTimeout))
+
 	// ********************************************************************************
 	// Create Network Service Manager nsmClient
 	// ********************************************************************************
@@ -184,10 +187,7 @@ func main() {
 			},
 		}
 
-		requestCtx, cancelRequest := context.WithTimeout(ctx, rootConf.RequestTimeout)
-		defer cancelRequest()
-
-		resp, err := nsmClient.Request(requestCtx, request)
+		resp, err := nsmClient.Request(ctx, request)
 
 		if err != nil {
 			logger.Fatalf("failed connect to NSMgr: %v", err.Error())
