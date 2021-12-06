@@ -80,8 +80,7 @@ func main() {
 	// ********************************************************************************
 	logrus.Info("Starting NetworkServiceMesh Client ...")
 	logrus.SetFormatter(&nested.Formatter{})
-	ctx = log.WithFields(ctx, map[string]interface{}{"cmd": os.Args[:1]})
-	ctx = log.WithLog(ctx, logruslogger.New(ctx))
+	ctx = log.WithLog(ctx, logruslogger.New(ctx, map[string]interface{}{"cmd": os.Args[:1]}))
 
 	// Enable Jaeger
 	log.EnableTracing(true)
