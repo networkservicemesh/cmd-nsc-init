@@ -42,6 +42,7 @@ import (
 	sriovtoken "github.com/networkservicemesh/sdk-sriov/pkg/networkservice/common/token"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/authorize"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/begin"
+	"github.com/networkservicemesh/sdk/pkg/networkservice/common/excludedprefixes"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/kernel"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/sendfd"
@@ -158,6 +159,7 @@ func main() {
 		dnscontext.NewClient(dnscontext.WithChainContext(ctx)),
 		authorize.NewClient(),
 		sendfd.NewClient(),
+		excludedprefixes.NewClient(),
 		networkservice.NewNetworkServiceClient(cc),
 	)
 
