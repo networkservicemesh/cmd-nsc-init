@@ -80,9 +80,9 @@ func main() {
 	// ********************************************************************************
 	// Setup logger
 	// ********************************************************************************
+	log.EnableTracing(true)
 	logrus.Info("Starting NetworkServiceMesh Client ...")
 	logrus.SetFormatter(&nested.Formatter{})
-	log.EnableTracing(true)
 	ctx = log.WithLog(ctx, logruslogger.New(ctx, map[string]interface{}{"cmd": os.Args[:1]}))
 	logger := log.FromContext(ctx)
 
@@ -99,11 +99,14 @@ func main() {
 	setLogLevel(rootConf.LogLevel)
 	logger.Infof("rootConf: %+v", rootConf)
 
+	// ********************************************************************************
+	// Configure Open Telemetry
+	// ********************************************************************************
 	if opentelemetry.IsEnabled() {
 		collectorAddress := rootConf.OpenTelemetryCollectorURL
 		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
 		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
-		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsmgr")
+		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsc-init")
 		defer func() {
 			if err := o.Close(); err != nil {
 				logger.Fatal(err)
