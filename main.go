@@ -82,21 +82,9 @@ func main() {
 	// ********************************************************************************
 	logrus.Info("Starting NetworkServiceMesh Client ...")
 	logrus.SetFormatter(&nested.Formatter{})
+	log.EnableTracing(true)
 	ctx = log.WithLog(ctx, logruslogger.New(ctx, map[string]interface{}{"cmd": os.Args[:1]}))
 	logger := log.FromContext(ctx)
-
-	if os.Getenv("TELEMETRY") == "enabled" {
-		collectorAddress := os.Getenv("COLLECTOR_ADDR")
-		log.EnableTracing(true)
-		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
-		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
-		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsmgr")
-		defer func() {
-			if err := o.Close(); err != nil {
-				logger.Fatal(err)
-			}
-		}()
-	}
 
 	// ********************************************************************************
 	// Get config from environment
@@ -110,6 +98,18 @@ func main() {
 	}
 	setLogLevel(rootConf.LogLevel)
 	logger.Infof("rootConf: %+v", rootConf)
+
+	if opentelemetry.IsEnabled() {
+		collectorAddress := rootConf.OpenTelemetryCollectorURL
+		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
+		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
+		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsmgr")
+		defer func() {
+			if err := o.Close(); err != nil {
+				logger.Fatal(err)
+			}
+		}()
+	}
 
 	// ********************************************************************************
 	// Get a x509Source
