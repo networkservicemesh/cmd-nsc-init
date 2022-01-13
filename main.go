@@ -103,13 +103,13 @@ func main() {
 	// Configure Open Telemetry
 	// ********************************************************************************
 	if opentelemetry.IsEnabled() {
-		collectorAddress := rootConf.OpenTelemetryCollectorURL
+		collectorAddress := rootConf.OpenTelemetryEndpoint
 		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
 		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
-		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsc-init")
+		o := opentelemetry.Init(ctx, spanExporter, metricExporter, rootConf.Name)
 		defer func() {
 			if err := o.Close(); err != nil {
-				logger.Fatal(err)
+				logger.Error(err.Error())
 			}
 		}()
 	}
