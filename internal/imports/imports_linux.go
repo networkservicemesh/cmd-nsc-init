@@ -27,7 +27,6 @@ import (
 	_ "github.com/networkservicemesh/sdk/pkg/tools/log"
 	_ "github.com/networkservicemesh/sdk/pkg/tools/log/logruslogger"
 	_ "github.com/networkservicemesh/sdk/pkg/tools/nsurl"
-	_ "github.com/networkservicemesh/sdk/pkg/tools/opentracing"
 	_ "github.com/networkservicemesh/sdk/pkg/tools/spiffejwt"
 	_ "github.com/networkservicemesh/sdk/pkg/tools/token"
 	_ "github.com/sirupsen/logrus"
