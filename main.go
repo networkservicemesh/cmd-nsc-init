@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Doc.ai and/or its affiliates.
+// Copyright (c) 2021-2022 Doc.ai and/or its affiliates.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -83,6 +83,7 @@ func main() {
 	logrus.Info("Starting NetworkServiceMesh Client ...")
 	logrus.SetFormatter(&nested.Formatter{})
 	ctx = log.WithLog(ctx, logruslogger.New(ctx, map[string]interface{}{"cmd": os.Args[:1]}))
+	logger := log.FromContext(ctx)
 
 	if os.Getenv("TELEMETRY") == "enabled" {
 		collectorAddress := os.Getenv("COLLECTOR_ADDR")
@@ -90,10 +91,12 @@ func main() {
 		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
 		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
 		o := opentelemetry.Init(ctx, spanExporter, metricExporter, "nsmgr")
-		defer o.Close()
+		defer func() {
+			if err := o.Close(); err != nil {
+				logger.Fatal(err)
+			}
+		}()
 	}
-
-	logger := log.FromContext(ctx)
 
 	// ********************************************************************************
 	// Get config from environment
