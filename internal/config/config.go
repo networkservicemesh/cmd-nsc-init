@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Doc.ai and/or its affiliates.
+// Copyright (c) 2021-2022 Doc.ai and/or its affiliates.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -24,11 +24,12 @@ import (
 
 // Config - configuration for cmd-nsc-init
 type Config struct {
-	Name             string        `default:"cmd-nsc-init" desc:"Name of the client" split_words:"true"`
-	DialTimeout      time.Duration `default:"5s" desc:"timeout to dial NSMgr" split_words:"true"`
-	RequestTimeout   time.Duration `default:"15s" desc:"timeout to request NSE" split_words:"true"`
-	ConnectTo        url.URL       `default:"unix:///var/lib/networkservicemesh/nsm.io.sock" desc:"url to connect to" split_words:"true"`
-	MaxTokenLifetime time.Duration `default:"10m" desc:"maximum lifetime of tokens" split_words:"true"`
-	NetworkServices  []url.URL     `default:"" desc:"A list of Network Service Requests" split_words:"true"`
-	LogLevel         string        `default:"INFO" desc:"Log level" split_words:"true"`
+	Name                  string        `default:"cmd-nsc-init" desc:"Name of the client" split_words:"true"`
+	DialTimeout           time.Duration `default:"5s" desc:"timeout to dial NSMgr" split_words:"true"`
+	RequestTimeout        time.Duration `default:"15s" desc:"timeout to request NSE" split_words:"true"`
+	ConnectTo             url.URL       `default:"unix:///var/lib/networkservicemesh/nsm.io.sock" desc:"url to connect to" split_words:"true"`
+	MaxTokenLifetime      time.Duration `default:"10m" desc:"maximum lifetime of tokens" split_words:"true"`
+	NetworkServices       []url.URL     `default:"" desc:"A list of Network Service Requests" split_words:"true"`
+	LogLevel              string        `default:"INFO" desc:"Log level" split_words:"true"`
+	OpenTelemetryEndpoint string        `default:"otel-collector.observability.svc.cluster.local:4317" desc:"OpenTelemetry Collector Endpoint"`
 }

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Doc.ai and/or its affiliates.
+// Copyright (c) 2021-2022 Doc.ai and/or its affiliates.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -14,6 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:build linux
 // +build linux
 
 package main
@@ -51,13 +52,13 @@ import (
 	"github.com/networkservicemesh/sdk/pkg/networkservice/connectioncontext/dnscontext"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/core/chain"
 	"github.com/networkservicemesh/sdk/pkg/tools/grpcutils"
-	"github.com/networkservicemesh/sdk/pkg/tools/jaeger"
 	"github.com/networkservicemesh/sdk/pkg/tools/log"
 	"github.com/networkservicemesh/sdk/pkg/tools/log/logruslogger"
 	"github.com/networkservicemesh/sdk/pkg/tools/nsurl"
-	"github.com/networkservicemesh/sdk/pkg/tools/opentracing"
+	"github.com/networkservicemesh/sdk/pkg/tools/opentelemetry"
 	"github.com/networkservicemesh/sdk/pkg/tools/spiffejwt"
 	"github.com/networkservicemesh/sdk/pkg/tools/token"
+	"github.com/networkservicemesh/sdk/pkg/tools/tracing"
 
 	"github.com/networkservicemesh/cmd-nsc-init/internal/config"
 )
@@ -79,15 +80,10 @@ func main() {
 	// ********************************************************************************
 	// Setup logger
 	// ********************************************************************************
+	log.EnableTracing(true)
 	logrus.Info("Starting NetworkServiceMesh Client ...")
 	logrus.SetFormatter(&nested.Formatter{})
 	ctx = log.WithLog(ctx, logruslogger.New(ctx, map[string]interface{}{"cmd": os.Args[:1]}))
-
-	// Enable Jaeger
-	log.EnableTracing(true)
-	jaegerCloser := jaeger.InitJaeger(ctx, "nsc")
-	defer func() { _ = jaegerCloser.Close() }()
-
 	logger := log.FromContext(ctx)
 
 	// ********************************************************************************
@@ -102,6 +98,21 @@ func main() {
 	}
 	setLogLevel(rootConf.LogLevel)
 	logger.Infof("rootConf: %+v", rootConf)
+
+	// ********************************************************************************
+	// Configure Open Telemetry
+	// ********************************************************************************
+	if opentelemetry.IsEnabled() {
+		collectorAddress := rootConf.OpenTelemetryEndpoint
+		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
+		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
+		o := opentelemetry.Init(ctx, spanExporter, metricExporter, rootConf.Name)
+		defer func() {
+			if err := o.Close(); err != nil {
+				logger.Error(err.Error())
+			}
+		}()
+	}
 
 	// ********************************************************************************
 	// Get a x509Source
@@ -127,7 +138,7 @@ func main() {
 	cc, err := grpc.DialContext(
 		dialCtx,
 		grpcutils.URLToTarget(&rootConf.ConnectTo),
-		append(opentracing.WithTracingDial(),
+		append(tracing.WithTracingDial(),
 			grpcfd.WithChainStreamInterceptor(),
 			grpcfd.WithChainUnaryInterceptor(),
 			grpc.WithDefaultCallOptions(
