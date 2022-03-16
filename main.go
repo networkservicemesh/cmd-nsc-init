@@ -170,7 +170,7 @@ func main() {
 		dnscontext.NewClient(dnscontext.WithChainContext(ctx)),
 		authorize.NewClient(),
 		sendfd.NewClient(),
-		excludedprefixes.NewClient(),
+		excludedprefixes.NewClient(excludedprefixes.WithAwarenessGroups(rootConf.AwarenessGroups)),
 		networkservice.NewNetworkServiceClient(cc),
 	)
 
