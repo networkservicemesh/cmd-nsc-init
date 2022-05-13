@@ -172,8 +172,9 @@ github.com/nats-io/nuid v1.0.1/go.mod h1:19wcPz3Ph3q0Jbyiqsd0kePYG7A95tJPxeL+1OS
 github.com/nats-io/stan.go v0.10.2/go.mod h1:vo2ax8K2IxaR3JtEMLZRFKIdoK/3o1/PKueapB7ezX0=
 github.com/networkservicemesh/api v1.3.2-0.20220512163820-8c875d61945b h1:suJRTlWU7/N0gF3FdcN9kCf1MO5Z7CdVSBdb2JTkLhk=
 github.com/networkservicemesh/api v1.3.2-0.20220512163820-8c875d61945b/go.mod h1:hOF2844BSstH1311oDMDgqqXS+kdc77htZNPRKl9mf8=
-github.com/networkservicemesh/sdk v0.5.1-0.20220512164527-dc8b0c099894 h1:J69KOXLObKnmtGaR7/uEw3PII/HqNkLwFQwdZffDdyE=
 github.com/networkservicemesh/sdk v0.5.1-0.20220512164527-dc8b0c099894/go.mod h1:7Aa9sCLOVzhsbR7LBJ1nSK/YCzd/EO/YK3BbHPB0puw=
+github.com/networkservicemesh/sdk v0.5.1-0.20220513003022-4d9bebd00c37 h1:1wQY2oelI/porPJb9KREzozx8UOhJ05DumSBPkbVrhY=
+github.com/networkservicemesh/sdk v0.5.1-0.20220513003022-4d9bebd00c37/go.mod h1:7Aa9sCLOVzhsbR7LBJ1nSK/YCzd/EO/YK3BbHPB0puw=
 github.com/networkservicemesh/sdk-kernel v0.0.0-20220513014027-1a5c14d724b1/go.mod h1:qcsOKUNPmQ1H22NHpOFuzU8ToM4NZZrYt2WmDLmd6OU=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20220513014423-ade0247aaaf7 h1:Elfb1nyJP0zaSnnXKQpvc1e9NWRV0ZzS83/WQ5YZaSk=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20220513014423-ade0247aaaf7/go.mod h1:GZExFojIu2iap+cqAetFFhKrDKIZFzSfzVgYdmGgpZM=
