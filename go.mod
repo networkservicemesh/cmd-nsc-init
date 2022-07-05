@@ -3,6 +3,7 @@ module github.com/networkservicemesh/cmd-nsc-init
 go 1.18
 
 require (
+	cloud.google.com/go v0.34.0
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/edwarnicke/grpcfd v1.1.2
 	github.com/kelseyhightower/envconfig v1.4.0

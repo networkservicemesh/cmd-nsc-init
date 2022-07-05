@@ -2,6 +2,7 @@
 package imports
 
 import (
+	_ "cloud.google.com/go/compute/metadata"
 	_ "context"
 	_ "crypto/tls"
 	_ "fmt"

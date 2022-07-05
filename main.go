@@ -27,6 +27,7 @@ import (
 	"os/signal"
 	"syscall"
 
+	"cloud.google.com/go/compute/metadata"
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/edwarnicke/grpcfd"
 	"github.com/kelseyhightower/envconfig"
@@ -166,6 +167,7 @@ func main() {
 	nsmClient := chain.NewNetworkServiceClient(
 		updatepath.NewClient(rootConf.Name),
 		begin.NewClient(),
+		metadata.NewClient(),
 		clientinfo.NewClient(),
 		sriovtoken.NewClient(),
 		mechanisms.NewClient(map[string]networkservice.NetworkServiceClient{
