@@ -51,7 +51,6 @@ import (
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/mechanisms/sendfd"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/retry"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/common/updatepath"
-	"github.com/networkservicemesh/sdk/pkg/networkservice/connectioncontext/dnscontext"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/core/chain"
 	"github.com/networkservicemesh/sdk/pkg/networkservice/utils/metadata"
 	"github.com/networkservicemesh/sdk/pkg/tools/grpcutils"
@@ -174,7 +173,6 @@ func main() {
 			vfiomech.MECHANISM:   chain.NewNetworkServiceClient(vfio.NewClient()),
 			kernelmech.MECHANISM: chain.NewNetworkServiceClient(kernel.NewClient()),
 		}),
-		dnscontext.NewClient(dnscontext.WithChainContext(ctx)),
 		authorize.NewClient(),
 		sendfd.NewClient(),
 		excludedprefixes.NewClient(excludedprefixes.WithAwarenessGroups(rootConf.AwarenessGroups)),
