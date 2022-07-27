@@ -104,8 +104,8 @@ github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5
 github.com/mna/pigeon v0.0.0-20180808201053-bb0192cfc2ae/go.mod h1:Iym28+kJVnC1hfQvv5MUtI6AiFFzvQjHcvI4RFTG/04=
 github.com/networkservicemesh/api v1.4.1-0.20220711153918-a59689088578 h1:2MZD6SGFULqTgMKA8BFy7F+ldRErAyxsWht7oCwCVRM=
 github.com/networkservicemesh/api v1.4.1-0.20220711153918-a59689088578/go.mod h1:hOF2844BSstH1311oDMDgqqXS+kdc77htZNPRKl9mf8=
-github.com/networkservicemesh/sdk v0.5.1-0.20220722102155-cbf511a6cd1e h1:P0y7c9ULem+x5/TGL1eAIBeIE6FlWLEX/O6KuMeGg9o=
-github.com/networkservicemesh/sdk v0.5.1-0.20220722102155-cbf511a6cd1e/go.mod h1:aT31j34psbMwTmyxgKZweiuYv783A1levN9nSKUVVp0=
+github.com/networkservicemesh/sdk v0.5.1-0.20220727114459-599be654ed67 h1:MEsrfmvOuDjrbdJeYy+4JQse1412rrh7fPVRUScgeqA=
+github.com/networkservicemesh/sdk v0.5.1-0.20220727114459-599be654ed67/go.mod h1:aT31j34psbMwTmyxgKZweiuYv783A1levN9nSKUVVp0=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20220722103443-6839261d7b9a h1:wA7Ku7GuggxLzK23tAg3UXCw+PgLxcuLGMgStTejjCw=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20220722103443-6839261d7b9a/go.mod h1:A5uQK0RoEdY/E2Dk6WVUJq5ShHHd2cpdNyn3X31xJc8=
 github.com/olekukonko/tablewriter v0.0.1/go.mod h1:vsDQFd/mU46D+Z4whnwzcISnGGzXWMclvtLoiIKAKIo=
