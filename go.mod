@@ -8,7 +8,7 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v1.4.1-0.20220711153918-a59689088578
 	github.com/networkservicemesh/sdk v0.5.1-0.20220908100121-e02e39b8b11b
-	github.com/networkservicemesh/sdk-sriov v0.0.0-20220831095420-02db1b0435f8
+	github.com/networkservicemesh/sdk-sriov v0.0.0-20220908101207-61b53882a358
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.0.0
 	google.golang.org/grpc v1.48.0
