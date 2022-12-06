@@ -194,8 +194,8 @@ github.com/matttproud/golang_protobuf_extensions v1.0.2-0.20181231171920-c182aff
 github.com/miekg/dns v1.1.50 h1:DQUfb9uc6smULcREF09Uc+/Gd46YWqJd5DbpPE9xkcA=
 github.com/networkservicemesh/api v1.6.2-0.20221205183940-84c7ff837cdd h1:26HR90HrJFZHIPPP3SCLGNRpPCMFoEnSSZfhHH8MPSo=
 github.com/networkservicemesh/api v1.6.2-0.20221205183940-84c7ff837cdd/go.mod h1:hOF2844BSstH1311oDMDgqqXS+kdc77htZNPRKl9mf8=
-github.com/networkservicemesh/sdk v0.5.1-0.20221206093429-0c3016070fdc h1:HeWsKbKvdw1vk0/ulxnGUfZ+np23MOOWKoAgSxiNa04=
-github.com/networkservicemesh/sdk v0.5.1-0.20221206093429-0c3016070fdc/go.mod h1:zEYFbCVXGlTT5f0x6sx8XtL2GazkYBpCoEpooxkz2vE=
+github.com/networkservicemesh/sdk v0.5.1-0.20221206103812-b6979bfe147d h1:m6B7ls2B+c48SNHiXak7HTxB1bs/aX4rmygixFhIlgg=
+github.com/networkservicemesh/sdk v0.5.1-0.20221206103812-b6979bfe147d/go.mod h1:zEYFbCVXGlTT5f0x6sx8XtL2GazkYBpCoEpooxkz2vE=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20221206095418-5242779e3187 h1:V/QQuOJacEO9CUXroOlg8lWmfZ1+1os2DNVmiTPIj1E=
 github.com/networkservicemesh/sdk-sriov v0.0.0-20221206095418-5242779e3187/go.mod h1:n/s/iWUbAXzeLCq9DJyvnvc4VFDZnCy+EZtJhKBhXls=
 github.com/open-policy-agent/opa v0.44.0 h1:sEZthsrWBqIN+ShTMJ0Hcz6a3GkYsY4FaB2S/ou2hZk=
