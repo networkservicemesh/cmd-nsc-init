@@ -7,8 +7,8 @@ require (
 	github.com/edwarnicke/grpcfd v1.1.2
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/networkservicemesh/api v1.7.2-0.20230123083145-4a6c3ec589e1
-	github.com/networkservicemesh/sdk v0.5.1-0.20230213134519-3aa9aa0d5e1b
-	github.com/networkservicemesh/sdk-sriov v0.0.0-20230213142844-2ea338a83e06
+	github.com/networkservicemesh/sdk v0.5.1-0.20230214013943-438ec051e69b
+	github.com/networkservicemesh/sdk-sriov v0.0.0-20230214123342-528783e52303
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spiffe/go-spiffe/v2 v2.0.0
 	google.golang.org/grpc v1.49.0
@@ -19,6 +19,7 @@ require (
 	github.com/agnivade/levenshtein v1.1.1 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/edwarnicke/exechelper v1.0.2 // indirect
+	github.com/edwarnicke/genericsync v0.0.0-20220910010113-61a344f9bc29 // indirect
 	github.com/edwarnicke/serialize v1.0.7 // indirect
 	github.com/fsnotify/fsnotify v1.5.4 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
