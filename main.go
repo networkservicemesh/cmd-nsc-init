@@ -29,6 +29,7 @@ import (
 
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/edwarnicke/grpcfd"
+	"github.com/google/uuid"
 	"github.com/kelseyhightower/envconfig"
 	"github.com/sirupsen/logrus"
 	"github.com/spiffe/go-spiffe/v2/spiffetls/tlsconfig"
@@ -99,6 +100,11 @@ func main() {
 		logger.Fatalf("error processing rootConf from env: %+v", err)
 	}
 	setLogLevel(rootConf.LogLevel)
+
+	if rootConf.ClientID == "" {
+		rootConf.ClientID = uuid.NewString()
+	}
+
 	logger.Infof("rootConf: %+v", rootConf)
 
 	// ********************************************************************************
@@ -195,7 +201,7 @@ func main() {
 		// Construct a request
 		request := &networkservice.NetworkServiceRequest{
 			Connection: &networkservice.Connection{
-				Id:             fmt.Sprintf("%s-%d", rootConf.Name, i),
+				Id:             fmt.Sprintf("%s-%s-%d", rootConf.Name, rootConf.ClientID, i),
 				NetworkService: u.NetworkService(),
 				Labels:         u.Labels(),
 			},
