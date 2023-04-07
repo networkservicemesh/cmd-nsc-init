@@ -7,6 +7,7 @@ import (
 	_ "fmt"
 	_ "github.com/antonfisher/nested-logrus-formatter"
 	_ "github.com/edwarnicke/grpcfd"
+	_ "github.com/google/uuid"
 	_ "github.com/kelseyhightower/envconfig"
 	_ "github.com/networkservicemesh/api/pkg/api/networkservice"
 	_ "github.com/networkservicemesh/api/pkg/api/networkservice/mechanisms/kernel"
