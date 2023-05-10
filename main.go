@@ -143,20 +143,15 @@ func main() {
 		dialCtx,
 		grpcutils.URLToTarget(&rootConf.ConnectTo),
 		append(tracing.WithTracingDial(),
-			grpcfd.WithChainStreamInterceptor(),
-			grpcfd.WithChainUnaryInterceptor(),
+			grpc.WithTransportCredentials(
+				grpcfd.TransportCredentials(credentials.NewTLS(tlsClientConfig))),
+			grpc.WithBlock(),
 			grpc.WithDefaultCallOptions(
-				grpc.WaitForReady(true),
 				grpc.PerRPCCredentials(token.NewPerRPCCredentials(spiffejwt.TokenGeneratorFunc(source, rootConf.MaxTokenLifetime))),
 			),
-			grpc.WithTransportCredentials(
-				grpcfd.TransportCredentials(
-					credentials.NewTLS(
-						tlsClientConfig,
-					),
-				),
-			))...,
-	)
+			grpcfd.WithChainStreamInterceptor(),
+			grpcfd.WithChainUnaryInterceptor(),
+		)...)
 	if err != nil {
 		logger.Fatalf("failed dial to NSMgr: %v", err.Error())
 	}
