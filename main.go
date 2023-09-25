@@ -1,5 +1,7 @@
 // Copyright (c) 2021-2022 Doc.ai and/or its affiliates.
 //
+// Copyright (c) 2023 Cisco and/or its affiliates.
+//
 // SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -107,7 +109,7 @@ func main() {
 	if opentelemetry.IsEnabled() {
 		collectorAddress := rootConf.OpenTelemetryEndpoint
 		spanExporter := opentelemetry.InitSpanExporter(ctx, collectorAddress)
-		metricExporter := opentelemetry.InitMetricExporter(ctx, collectorAddress)
+		metricExporter := opentelemetry.InitOPTLMetricExporter(ctx, collectorAddress, rootConf.MetricsExportInterval)
 		o := opentelemetry.Init(ctx, spanExporter, metricExporter, rootConf.Name)
 		defer func() {
 			if err := o.Close(); err != nil {
