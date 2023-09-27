@@ -1,5 +1,7 @@
 // Copyright (c) 2021-2022 Doc.ai and/or its affiliates.
 //
+// Copyright (c) 2023 Cisco and/or its affiliates.
+//
 // SPDX-License-Identifier: Apache-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,4 +37,5 @@ type Config struct {
 	AwarenessGroups       awarenessgroups.Decoder `defailt:"" desc:"Awareness groups for mutually aware NSEs" split_words:"true"`
 	LogLevel              string                  `default:"INFO" desc:"Log level" split_words:"true"`
 	OpenTelemetryEndpoint string                  `default:"otel-collector.observability.svc.cluster.local:4317" desc:"OpenTelemetry Collector Endpoint"`
+	MetricsExportInterval time.Duration           `default:"10s" desc:"interval between mertics exports" split_words:"true"`
 }
