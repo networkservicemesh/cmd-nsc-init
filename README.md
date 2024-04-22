@@ -16,6 +16,21 @@ You can build the docker container by running:
 docker build .
 ```
 
+# Usage
+
+## Environment config
+
+* `NSM_NAME`                    - Name of the client
+* `NSM_DIAL_TIMEOUT`            - timeout to dial NSMgr
+* `NSM_REQUEST_TIMEOUT`         - timeout to request NSE
+* `NSM_CONNECT_TO`              - url to connect to
+* `NSM_MAX_TOKEN_LIFETIME`      - maximum lifetime of tokens
+* `NSM_NETWORK_SERVICES`        - A list of Network Service Requests
+* `NSM_AWARENESS_GROUPS`        - Awareness groups for mutually aware NSEs
+* `NSM_LOG_LEVEL`               - Log level
+* `NSM_OPEN_TELEMETRY_ENDPOINT` - OpenTelemetry Collector Endpoint
+* `NSM_METRICS_EXPORT_INTERVAL` - interval between mertics exports
+
 # Testing
 
 ## Testing Docker container
