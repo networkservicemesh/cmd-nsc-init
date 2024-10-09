@@ -101,7 +101,7 @@ func main() {
 	if err := envconfig.Process("nsm", rootConf); err != nil {
 		logger.Fatalf("error processing rootConf from env: %+v", err)
 	}
-	setLogLevel(rootConf.LogLevel)
+	setupLogLevel(ctx, rootConf.LogLevel)
 	logger.Infof("rootConf: %+v", rootConf)
 
 	// ********************************************************************************
@@ -224,10 +224,14 @@ func main() {
 	}
 }
 
-func setLogLevel(level string) {
+func setupLogLevel(ctx context.Context, level string) {
 	l, err := logrus.ParseLevel(level)
 	if err != nil {
 		logrus.Fatalf("invalid log level %s", level)
 	}
 	logrus.SetLevel(l)
+	logruslogger.SetupLevelChangeOnSignal(ctx, map[os.Signal]logrus.Level{
+		syscall.SIGUSR1: logrus.TraceLevel,
+		syscall.SIGUSR2: l,
+	})
 }
