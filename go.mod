@@ -8,10 +8,10 @@ require (
 	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/edwarnicke/grpcfd v1.1.4
 	github.com/kelseyhightower/envconfig v1.4.0
-	github.com/networkservicemesh/api v1.14.2-rc.1.0.20241209080353-bbb4cd5f8f00
-	github.com/networkservicemesh/sdk v0.5.1-0.20250326135120-8ba46cbbc552
-	github.com/networkservicemesh/sdk-sriov v0.0.0-20250326142343-0f7c263d5397
-	github.com/sirupsen/logrus v1.9.0
+	github.com/networkservicemesh/api v1.14.4-rc.2
+	github.com/networkservicemesh/sdk v1.14.4-rc.2
+	github.com/networkservicemesh/sdk-sriov v1.14.4-rc.2
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spiffe/go-spiffe/v2 v2.1.7
 	google.golang.org/grpc v1.60.1
 )
@@ -27,7 +27,7 @@ require (
 	github.com/edwarnicke/exechelper v1.0.2 // indirect
 	github.com/edwarnicke/genericsync v0.0.0-20220910010113-61a344f9bc29 // indirect
 	github.com/edwarnicke/serialize v1.0.7 // indirect
-	github.com/fsnotify/fsnotify v1.5.4 // indirect
+	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/go-jose/go-jose/v3 v3.0.4 // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
